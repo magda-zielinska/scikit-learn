@@ -111,7 +111,7 @@ def permutation_importance(estimator, X, y, scoring=None, n_repeats=5,
     >>> clf = LogisticRegression().fit(X,y)
     LogisticRegression(...)
 
-    >>> result = permutation_importance(clf, X, y, n_repeats=10,
+    >>> result = permutation_importance(clf, X, y, n_repeats=2,
     ... random_state=0)
     {'importances_mean': array([0.5, 0. , 0. ]),
     'importances_std': array([0.16666667, 0.        , 0.        ]),
