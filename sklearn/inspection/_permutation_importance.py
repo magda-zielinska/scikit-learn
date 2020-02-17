@@ -113,7 +113,6 @@ def permutation_importance(estimator, X, y, scoring=None, n_repeats=5,
         [0.        , 0.        ],
         [0.        , 0.        ]])}
 
-
     >>> result.importances_mean
     array([0.5, 0. , 0. ])
 
