@@ -96,6 +96,30 @@ def permutation_importance(estimator, X, y, scoring=None, n_repeats=5,
         importances : ndarray, shape (n_features, n_repeats)
             Raw permutation importance scores.
 
+    Examples
+    --------
+    >>> from sklearn.linear_model import LogisticRegression
+    >>> from sklearn.inspection import permutation_importance
+
+    >>> X = [[1,9,9],[1,9,9],[1,9,9],
+    ...      [0,9,9],[0,9,9],[0,9,9]]
+    >>> y = [1,1,1,0,0,0]
+
+    >>> clf = LogisticRegression().fit(X, y)
+    LogisticRegression(...)
+    >>> result = permutation_importance(clf, X, y, n_repeats=2, random_state=42)
+    >>> result
+    {'importances_mean': array([0.33333333, 0.        , 0.        ]),
+    'importances_std': array([0.33333333, 0.        , 0.        ]),
+    'importances': array([[0.66666667, 0.        ],
+        [0.        , 0.        ],
+        [0.        , 0.        ]])}
+    >>> result.importances_mean
+    array([0.5, 0. , 0. ])
+
+    >>> result.importances_std
+    array([0.2236068, 0.       , 0.       ])
+
     References
     ----------
     .. [BRE] L. Breiman, "Random Forests", Machine Learning, 45(1), 5-32,
